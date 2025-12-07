@@ -1,26 +1,33 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { auth } from "./auth"; // Importe do seu arquivo auth.ts
+import { auth } from "./auth";
 
-export async function middleware(request: NextRequest) { // Adicione o tipo
-  const session = await auth();
-  
-  if (!session) {
-    return NextResponse.redirect(new URL('/login', request.url));
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
+  const { pathname } = req.nextUrl;
+
+  const isPublicPath =
+    pathname === "/" ||
+    pathname === "/login" ||
+    pathname === "/register" ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/_next") ||
+    pathname === "/favicon.ico" ||
+    pathname.startsWith("/public");
+
+  if (!isLoggedIn && !isPublicPath) {
+    const loginUrl = new URL("/login", req.nextUrl.origin);
+    loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname + req.nextUrl.search);
+    return NextResponse.redirect(loginUrl);
   }
-  
-  return NextResponse.next();
-}
 
-// Configure quais rotas o middleware deve proteger
+  return NextResponse.next();
+});
+
 export const config = {
-   matcher: [
-    // Proteja rotas específicas
-    '/dashboard/:path*',
-    '/profile/:path*',
-    '/config/:path*',
-    
-    // OU proteja todas exceto as públicas:
-    '/((?!api|_next/static|_next/image|favicon.ico|login|register|public|$).*)',
-  ]
+  matcher: [
+    "/dashboard/:path*",
+    "/profile/:path*",
+    "/config/:path*",
+    "/((?!api|_next/static|_next/image|favicon.ico|login|register|public|$).*)",
+  ],
 };
