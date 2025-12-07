@@ -57,7 +57,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (trigger === "update" && session) {
         token.name = session.name ?? token.name;
         token.email = session.email ?? token.email;
-        // @ts-expect-error custom field
         token.username = session.username ?? token.username;
       }
 
