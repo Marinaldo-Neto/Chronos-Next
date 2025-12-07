@@ -6,7 +6,7 @@ import { Metadata } from "next";
 const appUrl =
   process.env.NEXT_PUBLIC_APP_URL ||
   process.env.NEXTAUTH_URL ||
-  "http://localhost:3000";
+  "https://chronos-web-next.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
