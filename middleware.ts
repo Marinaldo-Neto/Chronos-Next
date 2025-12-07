@@ -1,23 +1,12 @@
 import { NextResponse } from "next/server";
 import { auth } from "./auth";
 
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
-  const { pathname } = req.nextUrl;
-
-  const isPublicPath =
-    pathname === "/" ||
-    pathname === "/login" ||
-    pathname === "/register" ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/_next") ||
-    pathname === "/favicon.ico" ||
-    pathname.startsWith("/public");
-
-  if (!isLoggedIn && !isPublicPath) {
-    const loginUrl = new URL("/login", req.nextUrl.origin);
-    loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname + req.nextUrl.search);
-    return NextResponse.redirect(loginUrl);
+// Usa o wrapper do NextAuth v5 para ter req.auth no middleware
+export default auth((request) => {
+  if (!request.auth) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
