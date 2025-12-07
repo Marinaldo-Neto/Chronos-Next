@@ -157,7 +157,6 @@ export default function DietList() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          students: form.selectedStudents,
           student: form.selectedStudent,
           name_plan: form.name_plan.trim(),
           water_meta: water,
