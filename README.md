@@ -1,7 +1,7 @@
-<h1 align="center">CHRONOS</h1>
-<p align="center">Projeto de WEB II utilizando NEXT JS para criação de uma aplicação FullStack</p>
+<h1 align="left">CHRONOS</h1>
+<p align="left">Projeto de WEB II utilizando NEXT JS para criação de uma aplicação FullStack</p>
 
-<p align="center" gap="8px">
+<p align="left" gap="8px">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg" height="256" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original-wordmark.svg" height="256" />
