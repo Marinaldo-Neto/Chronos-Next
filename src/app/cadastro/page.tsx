@@ -1,5 +1,5 @@
 import { CadastroForm } from "../components/auth-forms";
-import { auth } from "../../../auth";
+import { auth } from "../lib/auth";
 import { redirect } from "next/navigation";
 
 export const metadata = {

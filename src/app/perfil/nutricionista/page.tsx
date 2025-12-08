@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { HeaderPerfil } from "../../components/header-perfil";
-import { auth } from "../../../../auth";
+import { auth } from "../../lib/auth";
 import { redirect } from "next/navigation";
 import DietList from "./_components/diet-list";
 import Link from "next/link";

@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import User from "./src/app/models/User";
-import dbConnect from "./src/app/lib/db";
+import User from "../models/User";
+import dbConnect from "./db";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,

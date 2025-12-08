@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { auth } from "../../../../../auth";
+import { auth } from "../../../lib/auth";
 import { redirect } from "next/navigation";
 import { HeaderPerfil } from "../../../components/header-perfil";
 import { ProfileForm } from "../../_components/profile-form";

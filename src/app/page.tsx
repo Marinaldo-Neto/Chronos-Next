@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { HeaderHome } from "./components/header-home";
 import { HomeCTAButtons } from "./components/actions";
-import { auth } from "../../auth";
+import { auth } from "./lib/auth";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {

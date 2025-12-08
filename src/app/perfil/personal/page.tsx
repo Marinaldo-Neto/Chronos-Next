@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { CreateExercise } from "../../components/actions";
-import { auth } from "../../../../auth";
+import { auth } from "../../lib/auth";
 import { redirect } from "next/navigation";
 import { HeaderPerfil } from "../../components/header-perfil";
 import ExercisesList from "./_components/show-exercise";

@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import dbConnect from "../../lib/db";
 import Exercise from "../../models/Exercise";
 import mongoose from "mongoose";
-import { auth } from "../../../../auth";
+import { auth } from "../../lib/auth";
 
 // GET /api/exercises
 export async function GET(req: NextRequest) {

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { HeaderPerfil } from "../../components/header-perfil";
-import { auth } from "../../../../auth";
+import { auth } from "../../lib/auth";
 import { redirect } from "next/navigation";
 import { AssignedWorkouts } from "./_components/assigned-workouts";
 import { AssignedDiets } from "./_components/assigned-diets";

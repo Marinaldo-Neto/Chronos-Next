@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import dbConnect from "../../../lib/db";
 import Diet from "../../../models/Diet";
 import mongoose from "mongoose";
-import { auth } from "../../../../../auth";
+import { auth } from "../../../lib/auth";
 
 interface RouteContext {
   params: Promise<{ id: string }>;

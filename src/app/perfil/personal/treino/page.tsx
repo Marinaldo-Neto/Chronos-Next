@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { auth } from "../../../../../auth";
+import { auth } from "../../../lib/auth";
 import { redirect } from "next/navigation";
 import { CreateWorkout } from "../_components/create-workout";
 
