@@ -1,7 +1,7 @@
 # 1, 2, 3 - Web II
 
 ## Equipe
-- Nome Completo do Aluno 1
+- Antônio Félix de Medeiros
 - Nome Completo do Aluno 2
 - Nome Completo do Aluno 3
 
