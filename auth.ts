@@ -4,6 +4,7 @@ import User from "./src/app/models/User";
 import dbConnect from "./src/app/lib/db";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  secret: process.env.AUTH_SECRET,
   trustHost: true,
   session: { strategy: "jwt" },
 

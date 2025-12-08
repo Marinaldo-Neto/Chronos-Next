@@ -22,7 +22,10 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const session = await getToken({ req: request });
+  const session = await getToken({
+    req: request,
+    secret: process.env.AUTH_SECRET,
+  });
 
   if (!session) {
     const url = request.nextUrl.clone();
