@@ -3,7 +3,7 @@
 ## Equipe
 - Antônio Félix de Medeiros
 - Nome Completo do Aluno 2
-- Nome Completo do Aluno 3
+- Luiz Gustavo Soares Ferreira Liberal
 
 ## Descrição
 Aplicação fullstack para gestão de treinos, exercícios e dietas entre personal trainers, nutricionistas e alunos, com autenticação e persistência em MongoDB.
