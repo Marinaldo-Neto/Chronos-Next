@@ -1,17 +1,16 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-const PUBLIC_PATHS = new Set([
+const PUBLIC_PATHS = new Set<string>([
   "/",
   "/login",
   "/cadastro",
-  "/register",
 ]);
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Liberar assets estaticos e rotas publicas
+  // Liberar assets estáticos e rotas públicas
   const isStaticAsset =
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/auth") ||
@@ -22,15 +21,24 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const session = await getToken({
+  const useSecureCookie = request.nextUrl.protocol === "https:";
+
+  const token = await getToken({
     req: request,
     secret: process.env.AUTH_SECRET,
+    secureCookie: useSecureCookie,
   });
 
-  if (!session) {
+  if (!token) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    url.searchParams.set("callbackUrl", request.nextUrl.pathname);
+
+    // guarda rota original pra redirecionar depois do login
+    url.searchParams.set(
+      "callbackUrl",
+      request.nextUrl.pathname + request.nextUrl.search
+    );
+
     return NextResponse.redirect(url);
   }
 
